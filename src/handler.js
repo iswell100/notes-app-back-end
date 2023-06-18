@@ -102,16 +102,16 @@ const editNoteByIdHandler = (request, h) => {
 };
 
 const deleteNoteByIdHandler = (request, h) => {
-	const { id } = request.param;
+	const { id } = request.params;
 
 	const index = notes.findIndex((note) => note.id === id);
 
 	if (index !== -1) {
 		notes.splice(index, 1);
-		const resonse = h.response({
-			status: 'success berhasil disimpan'
+		const response = h.response({
+			status: 'success berhasil dihapus'
 		});
-		reponse.code(200);
+		response.code(200);
 		return response;
 	}
 
